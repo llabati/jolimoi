@@ -1,13 +1,14 @@
 <template lang="pug">
 p.result
-    slot 
-        strong
-        span
+    strong &bull; {{ item.name }}
+    span  {{ item.brand }}
 </template>
 
 <script>
     export default {
-        
+        props: {
+            item: Object
+        },
     }
 </script>
 
@@ -15,4 +16,7 @@ p.result
 .result
     margin 5px 0 0 0
     font-weight bold
+
+span
+    font-weight 200
 </style>

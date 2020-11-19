@@ -14,18 +14,18 @@
 
 <style lang="stylus">
 .square
-    display flex
     width: 100%
-    flex-direction column
-    justify-content center
-    align-items center
-    background-color #55D7FF
+    display grid
+    grid-template-columns repeat(4, 1fr)
+    grid-template-rows repeat(3, 1fr)
 
 .title
-    text-align center
-    width 50%
+    grid-column 2 / 4
+    grid-row 2 / 3
+    padding-top 7%
 
 h1
+    text-align center
     font 1.4em 
     font-weight bold
 

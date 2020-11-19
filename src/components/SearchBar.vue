@@ -1,19 +1,34 @@
 <template lang="pug">
-form(action="" method="method")
-    input.search(placeholder="Type your search here")
-    button.btn-search(type='submit') Search
+#form
+    input.search(type='text' name='name' placeholder="Brand, product, ingredient: type your search here" v-focus v-model="query")
+    button.btn-search(type='submit' @click='send') Search
 </template>
 
-<script>
+<script> 
     export default {
-        
+        data(){
+            return {
+                query: ''
+            }
+        },
+        methods: {
+            send(){
+                
+                console.log(this.query)
+                this.$emit('new-search', this.query)
+            }
+        },
+        directives: {
+            focus(el){
+                el.focus()
+            }
     }
+    
+    } 
 </script>
 
 <style lang="stylus">
-form
-    //width 50%
-    //height 100px
+#form
     margin 0
     padding 0
     display grid
@@ -36,14 +51,14 @@ form
         font-size 1.4em 
 
 @media (max-width: 767px) {
-    form {
+    #form {
         grid-column: 1 / 2
         grid-row: 1 / 2
     }
     
 }
 @media (min-width: 768px) {
-    form {
+    #form {
         grid-column: 2 / 4
         grid-row: 1 / 2
     }
